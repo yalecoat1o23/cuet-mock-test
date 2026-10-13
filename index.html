@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUET PG English Literature Mock Test</title>
+    
+    <!-- WhatsApp Rich Link Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CUET PG English Literature Mock Test">
+    <meta property="og:description" content="Take the 75-question timed mock test and test your preparation!">
+    <meta property="og:url" content="https://jocular-meringue-f49db1.netlify.app/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&auto=format&fit=crop&q=80">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+
+    <!-- Google Fonts & Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        .animate-float-slow { animation: float 5s ease-in-out infinite; }
+        .animate-glow { animation: pulseGlow 4s ease-in-out infinite; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950 text-slate-900 dark:text-slate-100 min-h-screen font-sans transition-colors duration-500 overflow-x-hidden relative">
+
+    <div class="absolute top-10 left-10 w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl animate-glow pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-glow pointer-events-none" style="animation-delay: 2s;"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-200/50 dark:border-slate-800/50 px-6 py-4 flex justify-between items-center transition-all">
+        <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-tr from-indigo-600 to-purple-600 text-white p-2.5 rounded-2xl font-extrabold tracking-wider shadow-lg shadow-indigo-500/30 transform hover:scale-105 transition">
+                📚 CUET PG
+            </div>
+            <div>
+                <h1 class="font-extrabold text-base md:text-lg leading-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">English Literature</h1>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">75 Questions • NTA Pattern (+4 / -1)</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <div id="timer-box" class="hidden items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 px-4 py-2 rounded-2xl text-indigo-600 dark:text-indigo-300 font-extrabold text-sm shadow-sm backdrop-blur-md">
+                <svg class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span id="time-left">45:00</span>
+            </div>
+
+            <button onclick="toggleDarkMode()" class="p-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm hover:scale-110 transition">
+                <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto p-4 md:p-8 relative z-10">
+
+        <!-- STEP 1: CANDIDATE REGISTRATION -->
+        <section id="registration-screen" class="max-w-md mx-auto glass-card rounded-3xl p-8 md:p-10 shadow-2xl transition-all mt-8 transform hover:shadow-indigo-500/10">
+            <div class="flex justify-center mb-6">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-indigo-500 rounded-3xl blur-xl opacity-40 animate-pulse"></div>
+                    <div class="relative bg-gradient-to-tr from-indigo-600 to-purple-600 text-white p-5 rounded-3xl shadow-xl animate-float-slow text-3xl">
+                        🎓
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-extrabold tracking-tight">Ready to Ace CUET PG?</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 font-medium">Enter your name below to unlock your private mock test session.</p>
+            </div>
+
+            <form id="reg-form" onsubmit="startExam(event)" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Candidate Name</label>
+                    <input type="text" id="candidate-name" required class="w-full px-5 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-600 font-semibold transition shadow-inner">
+                </div>
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold rounded-2xl shadow-xl shadow-indigo-600/30 transition transform active:scale-95 flex items-center justify-center gap-2 text-base">
+                    <span>Start Mock Test</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </button>
+            </form>
+        </section>
+
+        <!-- STEP 2: EXAM INTERFACE -->
+        <section id="exam-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div class="lg:col-span-3 space-y-6">
+                <div class="glass-card rounded-3xl p-6 md:p-8 shadow-2xl relative transition-all">
+                    <div class="flex justify-between items-center mb-6 border-b border-slate-200/50 dark:border-slate-800 pb-4">
+                        <span id="question-badge" class="px-3.5 py-1.5 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-extrabold rounded-xl text-xs uppercase tracking-wider border border-indigo-500/20">Question 1 of 75</span>
+                        <button onclick="toggleMarkForReview()" id="review-btn" class="px-4 py-2 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-extrabold flex items-center gap-2 hover:bg-amber-500/20 transition transform active:scale-95 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                            <span id="review-text">Mark for Review</span>
+                        </button>
+                    </div>
+
+                    <div id="question-text" class="text-base md:text-xl font-semibold mb-6 leading-relaxed"></div>
+                    <div id="options-container" class="space-y-3.5"></div>
+
+                    <div class="flex justify-between items-center mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800">
+                        <button onclick="prevQuestion()" id="prev-btn" class="px-6 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-30 shadow-sm">Previous</button>
+                        <button onclick="nextQuestion()" id="next-btn" class="px-8 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold text-sm shadow-lg shadow-indigo-600/30 transition transform hover:scale-105">Save & Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="glass-card rounded-3xl p-6 shadow-2xl">
+                    <h3 class="font-extrabold text-xs uppercase tracking-wider text-slate-400 mb-4 flex items-center justify-between">
+                        <span>Question Palette</span>
+                        <span class="animate-pulse w-2 h-2 rounded-full bg-emerald-500"></span>
+                    </h3>
+                    <div id="palette-grid" class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto custom-scrollbar p-1"></div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800 space-y-2.5 text-xs font-semibold text-slate-500">
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-lg bg-emerald-500 shadow-sm inline-block"></span> Answered</div>
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-lg bg-amber-500 shadow-sm inline-block"></span> Marked for Review</div>
+                        <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-lg bg-slate-200 dark:bg-slate-700 shadow-sm inline-block"></span> Unattempted</div>
+                    </div>
+
+                    <button onclick="confirmSubmit()" class="w-full mt-6 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold rounded-2xl shadow-xl shadow-emerald-600/30 transition transform hover:scale-[1.02]">
+                        Submit Test Now ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 3: SCORECARD & CERTIFICATE -->
+        <section id="scorecard-screen" class="hidden max-w-4xl mx-auto space-y-8">
+            <div id="printable-scorecard" class="glass-card rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="text-center pb-8 border-b border-slate-200/50 dark:border-slate-800">
+                    <div class="inline-block p-3 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-2xl mb-3 text-2xl animate-float-slow">🏆</div>
+                    <span class="px-3.5 py-1.5 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-extrabold uppercase tracking-widest rounded-xl border border-indigo-500/20">Official Score Report</span>
+                    <h2 class="text-3xl font-black mt-3">CUET PG English Mock Test</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1 font-medium">Candidate: <strong id="res-name" class="text-slate-800 dark:text-slate-200"></strong></p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8 text-center">
+                    <div class="p-5 bg-white/50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-sm">
+                        <p class="text-xs font-extrabold uppercase text-slate-400">Total Score</p>
+                        <p id="res-score" class="text-3xl font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mt-1">0 / 300</p>
+                    </div>
+                    <div class="p-5 bg-white/50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-sm">
+                        <p class="text-xs font-extrabold uppercase text-slate-400">Correct</p>
+                        <p id="res-correct" class="text-3xl font-black text-emerald-600 mt-1">0</p>
+                    </div>
+                    <div class="p-5 bg-white/50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-sm">
+                        <p class="text-xs font-extrabold uppercase text-slate-400">Incorrect</p>
+                        <p id="res-incorrect" class="text-3xl font-black text-rose-600 mt-1">0</p>
+                    </div>
+                    <div class="p-5 bg-white/50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-sm">
+                        <p class="text-xs font-extrabold uppercase text-slate-400">Unattempted</p>
+                        <p id="res-unattempted" class="text-3xl font-black text-slate-400 mt-1">0</p>
+                    </div>
+                </div>
+
+                <div id="certificate-box" class="hidden my-8 p-6 bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border border-amber-500/30 rounded-2xl text-center shadow-sm">
+                    <div class="text-3xl mb-1 animate-bounce">🎖️</div>
+                    <h3 class="font-extrabold text-amber-700 dark:text-amber-400 text-lg">Certificate of Merit Awarded</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">Demonstrated outstanding mastery and competitive proficiency in English Literature.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 pt-6 border-t border-slate-200/50 dark:border-slate-800">
+                    <button onclick="downloadPDF()" class="px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold rounded-2xl shadow-xl shadow-indigo-600/30 transition transform hover:scale-105">Download PDF Scorecard</button>
+                    <button onclick="location.reload()" class="px-8 py-3.5 bg-slate-200/70 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-extrabold rounded-2xl transition shadow-sm">Retake Exam</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script Engine -->
+    <script>
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        const rawQuestions = [
+            { q: "Which of the following best describes Old English as a language?", opts: ["It was essentially identical to modern English except for spelling.", "It was a Romance language heavily influenced by Latin grammar.", "It was a Germanic language with a substantially different vocabulary and grammatical structure from Modern English.", "It developed directly from Norman French."], ans: 2 },
+            { q: "The Great Vowel Shift is primarily associated with:", opts: ["A major change in the pronunciation of long vowels in English", "The replacement of Old English by Latin", "The development of English consonants from Germanic sounds", "The introduction of French vocabulary after 1066"], ans: 0 },
+            { q: "Which of the following words entered English largely through French influence after the Norman Conquest?", opts: ["Bread", "House", "Sheep", "Government"], ans: 3 },
+            { q: "Which branch of linguistics deals primarily with the physical production and acoustic properties of speech sounds?", opts: ["Morphology", "Phonetics", "Syntax", "Pragmatics"], ans: 1 },
+            { q: "Which pair represents a minimal pair in English?", opts: ["cat / cats", "walk / walked", "ship / sheep", "unhappy / happiness"], ans: 2 },
+            { q: "The study of how words are formed from smaller meaningful units is known as:", opts: ["Morphology", "Phonology", "Semantics", "Stylistics"], ans: 0 },
+            { q: "In linguistics, the smallest meaningful grammatical unit is called a:", opts: ["Phoneme", "Grapheme", "Morpheme", "Syllable"], ans: 2 },
+            { q: "Which of the following is a free morpheme?", opts: ["-ed", "un-", "-ness", "book"], ans: 3 },
+            { q: "The distinction between langue and parole is associated with:", opts: ["Noam Chomsky", "Ferdinand de Saussure", "Leonard Bloomfield", "Roman Jakobson"], ans: 1 },
+            { q: "In Saussurean linguistics, the relationship between the signifier and signified is generally understood as:", opts: ["Naturally motivated", "Biologically determined", "Arbitrary", "Historically fixed"], ans: 2 },
+            { q: "Which of the following belongs most directly to pragmatics rather than semantics?", opts: ["The dictionary meaning of “tree”", "The plural formation of “book”", "The implied meaning of “It's cold in here” when spoken to someone near an open window", "The pronunciation of the word “thought”"], ans: 2 },
+            { q: "The linguistic concept of code-switching refers to:", opts: ["Deliberately changing handwriting styles", "Alternating between two or more languages or varieties in communication", "Replacing spoken language with gesture", "Translating every sentence literally"], ans: 1 },
+            { q: "Which of the following is an example of prescriptive grammar?", opts: ["Recording how speakers actually use double negatives", "Describing regional differences in pronunciation", "Studying how children naturally acquire syntax", "Declaring that a particular grammatical construction is “incorrect”"], ans: 3 },
+            { q: "The Sapir–Whorf hypothesis is primarily concerned with the relationship between:", opts: ["Literature and morality", "Language and thought", "Speech and writing technology", "Grammar and literary genre"], ans: 1 },
+            { q: "Which of the following is NOT generally considered one of the four major language skills in English language teaching?", opts: ["Listening", "Speaking", "Translation", "Reading"], ans: 2 },
+            { q: "In language teaching, Communicative Language Teaching (CLT) primarily emphasizes:", opts: ["Memorisation of grammatical rules without context", "Translation of classical texts", "Meaningful communication and functional language use", "Exclusive use of the mother tongue"], ans: 2 },
+            { q: "Which teaching method is particularly associated with translation and explicit grammatical analysis?", opts: ["Grammar-Translation Method", "Direct Method", "Silent Way", "Total Physical Response"], ans: 0 },
+            { q: "A learner's systematic but developing version of a second language is often called:", opts: ["Diglossia", "Interlanguage", "Register", "Idiolect"], ans: 1 },
+            { q: "Which of the following is an example of code-mixing?", opts: ["Using two languages in completely separate conversations", "Switching from English to French only after finishing a speech", "Incorporating elements of another language into an utterance", "Translating a novel from one language to another"], ans: 2 },
+            { q: "The term “idiolect” refers to:", opts: ["The language of an entire nation", "An individual's distinctive way of using language", "A formal professional register", "A language used only in religious contexts"], ans: 1 },
+            { q: "Which work is generally regarded as the earliest surviving major English prose chronicle?", opts: ["The Anglo-Saxon Chronicle", "Piers Plowman", "The Book of Common Prayer", "The Shepheardes Calender"], ans: 0 },
+            { q: "Which medieval work is associated with the dream vision tradition?", opts: ["Sir Gawain and the Green Knight", "Piers Plowman", "Le Morte d'Arthur", "The Owl and the Nightingale"], ans: 1 },
+            { q: "The author of Le Morte Darthur is:", opts: ["Geoffrey Chaucer", "John Gower", "Thomas Malory", "William Langland"], ans: 2 },
+            { q: "Which of the following is most closely associated with Morality plays?", opts: ["Historical realism", "Allegorical personifications such as Everyman", "Classical unities", "Psychological realism"], ans: 1 },
+            { q: "The University Wits were primarily associated with:", opts: ["The development of late Victorian fiction", "Elizabethan drama before Shakespeare's full emergence", "Restoration comedy", "Romantic lyric poetry"], ans: 1 },
+            { q: "Which of the following writers is generally associated with the University Wits?", opts: ["Christopher Marlowe", "John Bunyan", "John Dryden", "Richard Sheridan"], ans: 0 },
+            { q: "Which play is associated with Thomas Kyd?", opts: ["The Spanish Tragedy", "The Jew of Malta", "Volpone", "The Alchemist"], ans: 0 },
+            { q: "The revenge tragedy tradition in Elizabethan drama is particularly associated with:", opts: ["The Spanish Tragedy", "She Stoops to Conquer", "The School for Scandal", "The Importance of Being Earnest"], ans: 0 },
+            { q: "Which of the following is a problem play by Shakespeare?", opts: ["The Tempest", "Measure for Measure", "A Midsummer Night's Dream", "The Comedy of Errors"], ans: 1 },
+            { q: "The term “Jacobean drama” refers to drama produced primarily during the reign of:", opts: ["Elizabeth I", "Charles I", "James I", "George I"], ans: 2 },
+            { q: "Which writer is especially associated with revenge tragedy and the Jacobean stage?", opts: ["John Webster", "Richard Steele", "William Congreve", "Oliver Goldsmith"], ans: 0 },
+            { q: "In The Duchess of Malfi, the Duchess secretly marries:", opts: ["Bosola", "Ferdinand", "Antonio", "Delio"], ans: 2 },
+            { q: "Which of the following is a picaresque novel?", opts: ["The Pilgrim's Progress", "Moll Flanders", "The Castle of Otranto", "Clarissa"], ans: 1 },
+            { q: "Daniel Defoe's Moll Flanders is presented largely as:", opts: ["A heroic epic", "A tragic drama", "A first-person account of a woman's adventurous and criminal life", "A medieval romance"], ans: 2 },
+            { q: "Which of the following novels is by Laurence Sterne?", opts: ["Tristram Shandy", "Clarissa", "Pamela", "Tom Jones"], ans: 0 },
+            { q: "A major formal innovation of Tristram Shandy is its:", opts: ["Strict chronological narration", "Experimental treatment of narrative time and digression", "Complete absence of humour", "Use of heroic couplets"], ans: 1 },
+            { q: "Which writer is associated with the American Renaissance?", opts: ["Henry James", "Ralph Waldo Emerson", "F. Scott Fitzgerald", "Ernest Hemingway"], ans: 1 },
+            { q: "Transcendentalism is most closely associated with:", opts: ["Emerson and Thoreau", "Poe and Hawthorne", "Twain and Whitman", "Hemingway and Faulkner"], ans: 0 },
+            { q: "Which work was written by Ralph Waldo Emerson?", opts: ["Walden", "Self-Reliance", "The Scarlet Letter", "The Adventures of Huckleberry Finn"], ans: 1 },
+            { q: "Henry David Thoreau's Walden is primarily concerned with:", opts: ["Courtly love", "Life in deliberate simplicity and communion with nature", "Industrial capitalism in Victorian England", "The American Civil War"], ans: 1 },
+            { q: "Which American writer is particularly associated with dark romanticism and tales of psychological terror?", opts: ["Edgar Allan Poe", "Walt Whitman", "Ralph Ellison", "Jack London"], ans: 0 },
+            { q: "Which poem begins with the speaker addressing a “Captain” after his leader's death?", opts: ["The Raven", "Song of Myself", "O Captain! My Captain!", "Because I Could Not Stop for Death"], ans: 2 },
+            { q: "Which novel centres on the obsessive pursuit of the white whale?", opts: ["The Scarlet Letter", "Moby-Dick", "The Portrait of a Lady", "The Sun Also Rises"], ans: 1 },
+            { q: "Which writer is associated with the Lost Generation?", opts: ["Ernest Hemingway", "Ralph Waldo Emerson", "Henry David Thoreau", "Herman Melville"], ans: 0 },
+            { q: "Which of the following is a novel by F. Scott Fitzgerald?", opts: ["The Grapes of Wrath", "The Sound and the Fury", "The Great Gatsby", "Invisible Man"], ans: 2 },
+            { q: "The Harlem Renaissance is primarily associated with:", opts: ["Medieval European poetry", "African American literary and cultural flourishing in the 1920s and beyond", "Victorian British realism", "Latin American magical realism"], ans: 1 },
+            { q: "Who wrote Kanthapura?", opts: ["R. K. Narayan", "Raja Rao", "Mulk Raj Anand", "Khushwant Singh"], ans: 1 },
+            { q: "Which novel by R. K. Narayan centres on a fictional South Indian town?", opts: ["Untouchable", "The Guide", "Midnight's Children", "Kanthapura"], ans: 1 },
+            { q: "Mulk Raj Anand's Untouchable focuses centrally on:", opts: ["Colonial administration in Africa", "The experience of caste discrimination through Bakha", "Partition through a Muslim aristocratic family", "Indian independence through a royal dynasty"], ans: 1 },
+            { q: "Which writer wrote A House for Mr Biswas?", opts: ["V. S. Naipaul", "Amitav Ghosh", "Rohinton Mistry", "Vikram Seth"], ans: 0 },
+            { q: "Salman Rushdie's Midnight's Children is particularly concerned with the relationship between:", opts: ["Mythology and medieval theology", "Personal identity and the history of post-independence India", "Victorian industrialisation and labour", "Greek mythology and Renaissance humanism"], ans: 1 },
+            { q: "Which novel by Amitav Ghosh explores migration, borders and the historical relationship between India and Burma/Myanmar?", opts: ["The Shadow Lines", "The God of Small Things", "The Inheritance of Loss", "The White Tiger"], ans: 0 },
+            { q: "Who wrote The God of Small Things?", opts: ["Arundhati Roy", "Anita Desai", "Kiran Desai", "Jhumpa Lahiri"], ans: 0 },
+            { q: "Which of the following writers is associated with Dalit literature?", opts: ["Bama", "Kamala Das", "Toru Dutt", "Sarojini Naidu"], ans: 0 },
+            { q: "Bama's Karukku is particularly important in relation to:", opts: ["Dalit Christian experience and caste oppression", "Mughal court culture", "Indian classical dance", "Colonial travel writing"], ans: 0 },
+            { q: "Which of the following is correctly matched?", opts: ["Mahasweta Devi — Hajar Churashir Ma", "Arundhati Roy — Clear Light of Day", "Anita Desai — The God of Small Things", "Kiran Desai — A Suitable Boy"], ans: 0 },
+            { q: "The term “gynocriticism” is associated with:", opts: ["Elaine Showalter", "Judith Butler", "Julia Kristeva", "Toril Moi"], ans: 0 },
+            { q: "Which concept is particularly associated with Judith Butler's work?", opts: ["Gender performativity", "Intentional fallacy", "Defamiliarization", "Touchstone method"], ans: 0 },
+            { q: "Which of the following is central to Marxist literary criticism?", opts: ["The relationship between literature, ideology, class and material conditions", "The author's unconscious alone", "The phonetic structure of poetry", "The autonomy of the literary text from society"], ans: 0 },
+            { q: "The concept of hegemony is particularly associated with:", opts: ["Antonio Gramsci", "Sigmund Freud", "Jacques Derrida", "Viktor Shklovsky"], ans: 0 },
+            { q: "Which of the following is most closely associated with psychoanalytic literary criticism?", opts: ["The unconscious and repression", "Defamiliarization", "Dialogism", "Hegemony"], ans: 0 },
+            { q: "The concept of the Oedipus complex originated in the work of:", opts: ["Carl Jung", "Jacques Lacan", "Sigmund Freud", "Alfred Adler"], ans: 2 },
+            { q: "Mikhail Bakhtin's concept of heteroglossia concerns:", opts: ["The complete purity of a single literary language", "The coexistence of multiple social voices and speech types within language", "The relationship between author and unconscious", "The historical development of metre"], ans: 1 },
+            { q: "Which theorist is strongly associated with dialogism and heteroglossia?", opts: ["Mikhail Bakhtin", "Roman Jakobson", "Gérard Genette", "Paul de Man"], ans: 0 },
+            { q: "Gérard Genette's work is particularly important to the study of:", opts: ["Narratology", "Phonetics", "Colonial economics", "Feminist theology"], ans: 0 },
+            { q: "Which of the following is a narratological term?", opts: ["Focalization", "Caesura", "Synecdoche", "Anapest"], ans: 0 },
+            { q: "If a narrator knows more than any individual character and provides information unavailable to them, the narration is generally described as:", opts: ["First-person limited", "Omniscient", "Objective dramatic", "Unreliable first-person"], ans: 1 },
+            { q: "An unreliable narrator is one whose:", opts: ["Narrative contains no subjective material", "Account cannot necessarily be accepted as a completely trustworthy representation of events", "Story is always written in the third person", "Narrative must always be written in the past tense"], ans: 1 },
+            { q: "Which figure of speech involves deliberate understatement, often for ironic effect?", opts: ["Hyperbole", "Litotes", "Apostrophe", "Synecdoche"], ans: 1 },
+            { q: "Which sentence contains zeugma?", opts: ["“The moon smiled upon the sleeping village.”", "“She broke his heart and the window.”", "“The leaves danced in the wind.”", "“He was as brave as a lion.”"], ans: 1 },
+            { q: "Read the statement: “The city never sleeps; its windows remain awake long after its inhabitants have gone to bed.” The dominant literary device in the statement is:", opts: ["Personification", "Metonymy", "Pun", "Oxymoron"], ans: 0 },
+            { 
+                q: "<b>Reading Comprehension Passage:</b><br><em class='text-sm text-slate-500'>'Literary history is often presented as a sequence of periods... they should not prevent readers from noticing continuities, contradictions, and individual differences.'</em><br><br><b>Q72. What is the central argument of the passage?</b>", 
+                opts: ["Literary periods should be completely abandoned.", "Romanticism was more important than Modernism.", "Literary periodisation is useful but should not be treated as rigid or absolute.", "Victorian literature had no influence on Modernism."], 
+                ans: 2 
+            },
+            { 
+                q: "<b>Reading Comprehension Passage:</b><br><em class='text-sm text-slate-500'>'Literary history is often presented as a sequence of periods... they should not prevent readers from noticing continuities, contradictions, and individual differences.'</em><br><br><b>Q73. According to the passage, Wordsworth is conventionally classified as:</b>", 
+                opts: ["A Victorian poet", "A Romantic poet", "A Modernist poet", "A Neoclassical poet"], 
+                ans: 1 
+            },
+            { 
+                q: "<b>Reading Comprehension Passage:</b><br><em class='text-sm text-slate-500'>'Literary history is often presented as a sequence of periods... they should not prevent readers from noticing continuities, contradictions, and individual differences.'</em><br><br><b>Q74. The author uses Modernism primarily to demonstrate that:</b>", 
+                opts: ["Modernist writers rejected all nineteenth-century literature.", "Literary movements emerge without any historical antecedents.", "Literary change is often continuous rather than occurring through perfectly clear breaks.", "Victorian literature was superior to Modernist literature."], 
+                ans: 2 
+            },
+            { 
+                q: "<b>Reading Comprehension Passage:</b><br><em class='text-sm text-slate-500'>'Literary history is often presented as a sequence of periods... they should not prevent readers from noticing continuities, contradictions, and individual differences.'</em><br><br><b>Q75. The word “provisional” in the final sentence most nearly means:</b>", 
+                opts: ["Permanent and unquestionable", "Temporary and subject to revision", "Historically inaccurate", "Completely unnecessary"], 
+                ans: 1 
+            }
+        ];
+
+        let questions = [];
+        let currentIndex = 0;
+        let userAnswers = {};
+        let markedForReview = {};
+        let timeLeft = 45 * 60;
+        let timerInterval = null;
+        let candidateName = "";
+
+        function initQuizData() {
+            questions = rawQuestions.map((item, index) => {
+                let originalOpts = [...item.opts];
+                let correctOptText = originalOpts[item.ans];
+                let shuffledOpts = shuffle([...originalOpts]);
+                let newAnsIndex = shuffledOpts.indexOf(correctOptText);
+
+                return {
+                    id: index + 1,
+                    q: item.q,
+                    opts: shuffledOpts,
+                    ans: newAnsIndex
+                };
+            });
+        }
+
+        function startExam(e) {
+            e.preventDefault();
+            candidateName = document.getElementById("candidate-name").value.trim();
+            if(!candidateName) return;
+
+            initQuizData();
+            document.getElementById("registration-screen").classList.add("hidden");
+            document.getElementById("exam-screen").classList.remove("hidden");
+            document.getElementById("timer-box").classList.remove("hidden");
+            document.getElementById("timer-box").classList.add("flex");
+
+            startTimer();
+            renderQuestion();
+            renderPalette();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitExam();
+                    return;
+                }
+                timeLeft--;
+                let m = Math.floor(timeLeft / 60);
+                let s = timeLeft % 60;
+                document.getElementById("time-left").innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            }, 1000);
+        }
+
+        function renderQuestion() {
+            let qData = questions[currentIndex];
+            document.getElementById("question-badge").innerText = `Question ${currentIndex + 1} of 75`;
+            document.getElementById("question-text").innerHTML = qData.q;
+
+            let optsHtml = "";
+            qData.opts.forEach((opt, idx) => {
+                let isChecked = userAnswers[currentIndex] === idx;
+                let bgStyle = isChecked ? 
+                    "border-indigo-600 bg-indigo-500/10 shadow-md ring-2 ring-indigo-500/30" : 
+                    "border-slate-200/60 dark:border-slate-800/60 bg-white/40 dark:bg-slate-900/40 hover:border-indigo-400";
+                
+                optsHtml += `
+                    <label class="flex items-center gap-4 p-4 rounded-2xl border ${bgStyle} cursor-pointer transition transform hover:scale-[1.01]">
+                        <input type="radio" name="question-opt" value="${idx}" ${isChecked ? "checked" : ""} onchange="selectOption(${idx})" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                        <span class="text-sm md:text-base font-medium">${opt}</span>
+                    </label>
+                `;
+            });
+            document.getElementById("options-container").innerHTML = optsHtml;
+
+            let reviewBtn = document.getElementById("review-btn");
+            if (markedForReview[currentIndex]) {
+                reviewBtn.className = "px-4 py-2 rounded-xl border border-amber-500 bg-amber-500 text-white text-xs font-extrabold flex items-center gap-2 transition shadow-sm";
+            } else {
+                reviewBtn.className = "px-4 py-2 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-extrabold flex items-center gap-2 hover:bg-amber-500/20 transition shadow-sm";
+            }
+
+            document.getElementById("prev-btn").disabled = currentIndex === 0;
+            document.getElementById("next-btn").innerText = currentIndex === questions.length - 1 ? "Finish & Review" : "Save & Next";
+            renderPalette();
+        }
+
+        function selectOption(idx) {
+            userAnswers[currentIndex] = idx;
+            renderPalette();
+        }
+
+        function toggleMarkForReview() {
+            markedForReview[currentIndex] = !markedForReview[currentIndex];
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+                renderQuestion();
+            } else {
+                confirmSubmit();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        }
+
+        function goToQuestion(index) {
+            currentIndex = index;
+            renderQuestion();
+        }
+
+        function renderPalette() {
+            let paletteHtml = "";
+            for (let i = 0; i < questions.length; i++) {
+                let statusClass = "bg-white/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700";
+                
+                if (userAnswers[i] !== undefined) {
+                    statusClass = "bg-emerald-500 text-white border-emerald-600 shadow-sm";
+                }
+                if (markedForReview[i]) {
+                    statusClass = "bg-amber-500 text-white border-amber-600 shadow-sm";
+                }
+                if (currentIndex === i) {
+                    statusClass += " ring-2 ring-indigo-600 ring-offset-2 dark:ring-offset-slate-900 scale-105";
+                }
+
+                paletteHtml += `<button onclick="goToQuestion(${i})" class="w-9 h-9 rounded-xl font-bold text-xs border ${statusClass} transition transform hover:scale-110">${i + 1}</button>`;
+            }
+            document.getElementById("palette-grid").innerHTML = paletteHtml;
+        }
+
+        function confirmSubmit() {
+            if (confirm("Are you sure you want to submit your mock test?")) {
+                submitExam();
+            }
+        }
+
+        function submitExam() {
+            clearInterval(timerInterval);
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let unattemptedCount = 0;
+
+            questions.forEach((q, idx) => {
+                let ans = userAnswers[idx];
+                if (ans === undefined) {
+                    unattemptedCount++;
+                } else if (ans === q.ans) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+            });
+
+            let totalScore = (correctCount * 4) - (incorrectCount * 1);
+
+            document.getElementById("exam-screen").classList.add("hidden");
+            document.getElementById("timer-box").classList.add("hidden");
+            document.getElementById("scorecard-screen").classList.remove("hidden");
+
+            document.getElementById("res-name").innerText = candidateName;
+            document.getElementById("res-score").innerText = `${totalScore} / 300`;
+            document.getElementById("res-correct").innerText = correctCount;
+            document.getElementById("res-incorrect").innerText = incorrectCount;
+            document.getElementById("res-unattempted").innerText = unattemptedCount;
+
+            if (totalScore >= 225) {
+                document.getElementById("certificate-box").classList.remove("hidden");
+            }
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify({
+                    access_key: "e2051352-ea13-4702-bce6-59c77a22c9ab",
+                    subject: `New Mock Test Score: ${candidateName} (${totalScore}/300)`,
+                    Candidate_Name: candidateName,
+                    Total_Score: totalScore + " / 300",
+                    Correct: correctCount,
+                    Incorrect: incorrectCount,
+                    Unattempted: unattemptedCount,
+                    Timestamp: new Date().toLocaleString()
+                })
+            }).catch(err => console.log("Email dispatch background notice"));
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById("printable-scorecard");
+            html2pdf().from(element).save(`CUET_PG_Scorecard_${candidateName.replace(/\s+/g, '_')}.pdf`);
+        }
+    </script>
+</body>
+</html>
